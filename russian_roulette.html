@@ -1,0 +1,66 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script type='text/javascript'>
+var min = 1;
+var max = 8;
+var i = randomNumber();
+var b = randomNumber();
+
+$(function(){
+    $('#spin').click(deadOrAlive);
+    $('#bullet').click(restart);	
+    
+});
+
+function randomNumber(){  
+	console.log('randomNumber');
+    return Math.floor(Math.random() * (max - min + 1)) + min;  
+};  
+
+
+function deadOrAlive(){
+	console.group('deadOrAlive');
+	i = randomNumber();
+	console.log("this is i "+i); 
+	console.log("this is b "+b);
+	if (i === b){
+		
+		$('#bleh').html('Bang! Your Dead!');
+		$('#fire').html("It's not your lucky day");
+		$('#bullet').html('Another life is granted, Play again?')
+		$("#spin").html('');
+	} else {
+		$('#fire').html('Click! You live to see another day.');
+		$('#spin').html('Try again?')
+		$('#bleh').html('');
+		$('#Bullet').html('');
+	}
+	console.groupEnd('deadOrAlive');
+};	
+function restart(){
+	b = randomNumber();
+	deadOrAlive();
+
+	
+
+}
+
+
+</script>
+</head>
+<body>
+<div id= 'title'> Russian Roulette</div>
+<div id='intro'> Will you live? Or will you die?
+</div>
+<div id='fire'> 
+</div>
+<a id='spin' href='#'>Feeling lucky?
+</a>
+
+<div id='bleh'>
+</div>
+<a id="bullet" href='#'>
+</a>
+</body>
+</html>

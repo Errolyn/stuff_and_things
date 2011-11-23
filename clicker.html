@@ -1,0 +1,45 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script type='text/javascript'>
+var i = -1;
+$(function(){
+	$('#psst').click(changeText);
+	$('#psst').click(countClick);
+	$('#takeItBack').click(stepBack);
+	$('#counting').html(i.toString());
+	setWai();
+});
+function changeText(){
+	$('#thing').html('Wooh!');
+}
+function countClick(){
+	$('#counting').html((++i).toString());
+	setWai();
+}
+function setWai(){
+	if (i % 2 == 0){
+		$('#wai').html('even');
+	} else {
+		$('#wai').html('odd');
+	}
+}
+function stepBack(){
+	$('#counting').html((--i).toString());
+	setWai();
+}
+</script>
+</head>
+<body>
+<div  id="thing">hi
+</div>
+<a id="psst" href="#">Up
+</a>
+<div id="counting">
+</div>
+<div id="wai">
+</div>
+<a id="takeItBack" href="#">Down
+</div>
+</body>
+</html>
