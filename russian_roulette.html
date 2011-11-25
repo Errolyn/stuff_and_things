@@ -9,8 +9,8 @@ var b = randomNumber();
 
 $(function(){
     $('#spin').click(deadOrAlive);
-    $('#bullet').click(restart);	
-    
+    $('#bullet').click(restart);
+    $('#spin').click(c++)	
 });
 
 function randomNumber(){  
@@ -18,14 +18,12 @@ function randomNumber(){
     return Math.floor(Math.random() * (max - min + 1)) + min;  
 };  
 
-
 function deadOrAlive(){
 	console.group('deadOrAlive');
 	i = randomNumber();
 	console.log("this is i "+i); 
 	console.log("this is b "+b);
 	if (i === b){
-		
 		$('#bleh').html('Bang! Your Dead!');
 		$('#fire').html("It's not your lucky day");
 		$('#bullet').html('Another life is granted, Play again?')
@@ -34,7 +32,7 @@ function deadOrAlive(){
 		$('#fire').html('Click! You live to see another day.');
 		$('#spin').html('Try again?')
 		$('#bleh').html('');
-		$('#Bullet').html('');
+		$('#bullet').html('');
 	}
 	console.groupEnd('deadOrAlive');
 }
