@@ -1,0 +1,186 @@
+<html>
+<head>
+<div>HangMan!
+</div>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type='text/javascript'>
+randomWord();
+var words = new Array('cabbage','kitten','persona','zealot','excaliber','photosynthesis','beagle','trepidation','phobia','canibal','pocket','contents','liberate','vacuum','xylophone','invigorate','quotations','yiddish');
+var letters = 'abcdefghijklmnopqrstuvwxyz'
+var choice = words[ranNum];
+console.log(choice);
+var l = 0;
+var w = 0;
+
+$(function(){
+	hideHangMan();
+	findLength();
+	viewLetters();
+	$('.clickableLetter').click(findLetter);
+	$('.clickableLetter').click(loserWin)
+
+});
+function hideHangMan(){
+	for (var hang = 1; hang < 8; ++hang){
+		$("#"+hang.toString()).hide('');
+	}
+}
+
+function randomWord(){
+	var min = 0
+	var max = 17
+	ranNum = Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+
+function findLength(){
+	
+		for (var i = 0; i < choice.length; ++i){
+			var thisLetter = choice[i]
+			var realWord = $("<span></span>")
+			.addClass(thisLetter).append("_ ")
+			$('#underscore').append(realWord);
+	}
+};
+
+function viewLetters(){
+	for (var apple = 0; apple < letters.length; ++apple){
+		currentLetter = letters[apple]
+		$('#displayLetters').append($('<a href="#"></a>').addClass(currentLetter).addClass('clickableLetter').append(currentLetter + ' '))
+	}
+};
+
+function findLetter(){
+	var letterClicked = $(this).text().trim();
+	$(this).hide('');
+	var poss = choice.match(letterClicked)	
+
+	if (poss){ 
+		
+		$("#underscore ."+letterClicked).html(letterClicked);
+		console.log(poss)
+		$("#guesses").html('Guesses '+((++w) + l).toString());
+		///alert(true);
+		return true;
+	}
+
+	else{
+		$("#guesses").html("Guesses "+((++l) + w).toString());
+		$('#'+l.toString()).show()
+		$('#'+(l-1).toString()).hide()
+		console.log("l1 is = "+l);
+		$("#guesses2").html('Wrong Guesses '+l);
+		alert("You're Wrong");
+	}
+	console.log("this is l2 "+l)
+	console.log('w = '+w)
+};
+
+function loserWin(){
+	if (l === 7){
+		alert("Game Over");
+	}	
+	else if (choice === $("#underscore").text()){
+		alert("You Win!")
+	}	
+};
+
+</script>
+</head>
+<body>
+<pre id= '0'>  
+  =O==========+    
+             ||    
+             ||    
+             ||    
+             ||    
+             ||    
+             ||    
+             ||    
+             ||   
+================] </pre>
+<pre id= '1'>  
+  =O==========+    
+   |         ||    
+             ||    
+             ||    
+             ||    
+             ||    
+             ||    
+             ||    
+             ||   
+================] </pre>
+<pre id= '2'> 
+  =O==========+    
+   |         ||    
+   |         ||    
+             ||    
+             ||    
+             ||    
+    	     ||    
+             ||    
+             ||   
+================] </pre>
+<pre id= '3'>
+  =O==========+    
+   |         ||    
+   |         ||    
+   |         ||    
+             ||    
+             ||    
+             ||    
+             ||    
+             ||   
+================] </pre>
+<pre id= '4'>
+  =O==========+    
+   |         ||    
+   |         ||    
+   |         ||    
+  (_)        ||    
+             ||    
+             ||    
+             ||    
+             ||   
+================] </pre>
+<pre id= '5'>
+  =O==========+    
+   |         ||    
+   |         ||    
+   |         ||    
+  (_)        ||    
+  /T\        ||    
+             ||    
+             ||    
+             ||   
+================] </pre>
+<pre id= '6'>
+  =O==========+    
+   |         ||    
+   |         ||    
+   |         ||    
+  (_)        ||    
+  /T\        ||    
+   M         ||    
+             ||    
+             ||   
+================] </pre>
+<pre id= '7'>
+  =O==========+    
+   |         ||    
+   |         ||    
+   |         ||    
+  (_)        ||    
+  /T\        ||    
+   M         ||    
+  J L        ||    
+             ||   
+================]</pre>
+<pre id='base'>________________] </pre>
+<div id= 'underscore'></div>
+<div id= 'lettersClick'></div>
+<div id= 'displayLetters'></div>
+<div id= 'guesses'></div>
+<div id= 'guesses2'></div>
+</body>
+</html>
