@@ -8,7 +8,7 @@ randomWord();
 var words = new Array('cabbage','kitten','persona','zealot','excaliber','photosynthesis','beagle','trepidation','phobia','canibal','pocket','contents','liberate','vacuum','xylophone','invigorate','quotations','yiddish');
 var letters = 'abcdefghijklmnopqrstuvwxyz'
 var choice = words[ranNum];
-console.log(choice);
+///console.log(choice);
 var wrongLetterArray = new Array()
 
 var l = 0;
@@ -65,7 +65,7 @@ function findLetter(){
 	if (poss){ 
 		
 		$("#underscore ."+letterClicked).html(letterClicked);
-		console.log(poss)
+		///console.log(poss)
 		$("#guesses").html('Guesses '+((++w) + l).toString());
 		///alert(true);
 		return true;
@@ -78,9 +78,8 @@ function findLetter(){
 		$("#guesses").html("Guesses "+((++l) + w).toString());
 		$('#'+l.toString()).show()
 		$('#'+(l-1).toString()).hide()
-		console.log("l1 is = "+l);
+		///console.log("l1 is = "+l);
 		$("#guesses2").html('Guesses Left= '+(--guessesLeft));
-		console.log(wrongLetterArray)
 		///alert("You're Wrong");
 	}
 	console.log("this is l2 "+l)
