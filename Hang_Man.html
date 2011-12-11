@@ -9,15 +9,18 @@ var words = new Array('cabbage','kitten','persona','zealot','excaliber','photosy
 var letters = 'abcdefghijklmnopqrstuvwxyz'
 var choice = words[ranNum];
 console.log(choice);
+var wrongLetterArray = new Array()
+
 var l = 0;
 var w = 0;
-
+var guessesLeft = 7;
 $(function(){
 	hideHangMan();
 	findLength();
 	viewLetters();
 	$('.clickableLetter').click(findLetter);
 	$('.clickableLetter').click(loserWin)
+
 
 });
 function hideHangMan(){
@@ -54,7 +57,11 @@ function findLetter(){
 	var letterClicked = $(this).text().trim();
 	$(this).hide('');
 	var poss = choice.match(letterClicked)	
-
+	var maybe = l
+	wrongLetterArray[maybe] = letterClicked
+		
+	
+	
 	if (poss){ 
 		
 		$("#underscore ."+letterClicked).html(letterClicked);
@@ -65,12 +72,16 @@ function findLetter(){
 	}
 
 	else{
+		
+		$('#allBadGuesses').html("Wrong Guesses= "+wrongLetterArray)
+		$('#lastGuesses').html('Last guess= '+letterClicked.toString());
 		$("#guesses").html("Guesses "+((++l) + w).toString());
 		$('#'+l.toString()).show()
 		$('#'+(l-1).toString()).hide()
 		console.log("l1 is = "+l);
-		$("#guesses2").html('Wrong Guesses '+l);
-		alert("You're Wrong");
+		$("#guesses2").html('Guesses Left= '+(--guessesLeft));
+		console.log(wrongLetterArray)
+		///alert("You're Wrong");
 	}
 	console.log("this is l2 "+l)
 	console.log('w = '+w)
@@ -78,6 +89,7 @@ function findLetter(){
 
 function loserWin(){
 	if (l === 7){
+		$('#underscore').html(choice)
 		alert("Game Over");
 	}	
 	else if (choice === $("#underscore").text()){
@@ -182,5 +194,7 @@ function loserWin(){
 <div id= 'displayLetters'></div>
 <div id= 'guesses'></div>
 <div id= 'guesses2'></div>
+<div id= "lastGuesses"></div>
+<div id= 'allBadGuesses'></div>
 </body>
 </html>
