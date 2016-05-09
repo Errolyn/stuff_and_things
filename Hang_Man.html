@@ -4,7 +4,9 @@
 </div>
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type='text/javascript'>
+
 randomWord();
+
 var words = new Array('cabbage','kitten','persona','zealot','excaliber','photosynthesis','beagle','trepidation','phobia','canibal','pocket','contents','liberate','vacuum','xylophone','invigorate','quotations','yiddish');
 var letters = 'abcdefghijklmnopqrstuvwxyz'
 var choice = words[ranNum];
@@ -14,15 +16,15 @@ var wrongLetterArray = new Array()
 var l = 0;
 var w = 0;
 var guessesLeft = 7;
+
 $(function(){
 	hideHangMan();
 	findLength();
 	viewLetters();
 	$('.clickableLetter').click(findLetter);
 	$('.clickableLetter').click(loserWin)
-
-
 });
+
 function hideHangMan(){
 	for (var hang = 1; hang < 8; ++hang){
 		$("#"+hang.toString()).hide('');
