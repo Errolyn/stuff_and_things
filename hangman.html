@@ -1,5 +1,8 @@
 <html>
 <head>
+
+<title>Hangman!</title>
+
 <div>HangMan!
 </div>
 <script type="text/javascript" src="jquery.min.js"></script>
@@ -18,83 +21,83 @@ var w = 0;
 var guessesLeft = 7;
 
 $(function(){
-	hideHangMan();
-	findLength();
-	viewLetters();
-	$('.clickableLetter').click(findLetter);
-	$('.clickableLetter').click(loserWin)
+  hideHangMan();
+  findLength();
+  viewLetters();
+  $('.clickableLetter').click(findLetter);
+  $('.clickableLetter').click(loserWin)
 });
 
 function hideHangMan(){
-	for (var hang = 1; hang < 8; ++hang){
-		$("#"+hang.toString()).hide('');
-	}
+  for (var hang = 1; hang < 8; ++hang){
+    $("#"+hang.toString()).hide('');
+  }
 }
 
 function randomWord(){
-	var min = 0
-	var max = 17
-	ranNum = Math.floor(Math.random() * (max - min + 1)) + min;
+  var min = 0
+  var max = 17
+  ranNum = Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 function findLength(){
-	
-		for (var i = 0; i < choice.length; ++i){
-			var thisLetter = choice[i]
-			var realWord = $("<span></span>")
-			.addClass(thisLetter).append("_ ")
-			$('#underscore').append(realWord);
-	}
+  
+    for (var i = 0; i < choice.length; ++i){
+      var thisLetter = choice[i]
+      var realWord = $("<span></span>")
+      .addClass(thisLetter).append("_ ")
+      $('#underscore').append(realWord);
+  }
 };
 
 function viewLetters(){
-	for (var apple = 0; apple < letters.length; ++apple){
-		currentLetter = letters[apple]
-		$('#displayLetters').append($('<a href="#"></a>').addClass(currentLetter).addClass('clickableLetter').append(currentLetter + ' '))
-	}
+  for (var apple = 0; apple < letters.length; ++apple){
+    currentLetter = letters[apple]
+    $('#displayLetters').append($('<a href="#"></a>').addClass(currentLetter).addClass('clickableLetter').append(currentLetter + ' '))
+  }
 };
 
 function findLetter(){
-	var letterClicked = $(this).text().trim();
-	$(this).hide('');
-	var poss = choice.match(letterClicked)	
-	var maybe = l
-	wrongLetterArray[maybe] = letterClicked
-		
-	
-	
-	if (poss){ 
-		
-		$("#underscore ."+letterClicked).html(letterClicked);
-		///console.log(poss)
-		$("#guesses").html('Guesses '+((++w) + l).toString());
-		///alert(true);
-		return true;
-	}
+  var letterClicked = $(this).text().trim();
+  $(this).hide('');
+  var poss = choice.match(letterClicked)  
+  var maybe = l
+  wrongLetterArray[maybe] = letterClicked
+    
+  
+  
+  if (poss){ 
+    
+    $("#underscore ."+letterClicked).html(letterClicked);
+    ///console.log(poss)
+    $("#guesses").html('Guesses '+((++w) + l).toString());
+    ///alert(true);
+    return true;
+  }
 
-	else{
-		
-		$('#allBadGuesses').html("Wrong Guesses= "+wrongLetterArray)
-		$('#lastGuesses').html('Last guess= '+letterClicked.toString());
-		$("#guesses").html("Guesses "+((++l) + w).toString());
-		$('#'+l.toString()).show()
-		$('#'+(l-1).toString()).hide()
-		///console.log("l1 is = "+l);
-		$("#guesses2").html('Guesses Left= '+(--guessesLeft));
-		///alert("You're Wrong");
-	}
-	console.log("this is l2 "+l)
-	console.log('w = '+w)
+  else{
+    
+    $('#allBadGuesses').html("Wrong Guesses= "+wrongLetterArray)
+    $('#lastGuesses').html('Last guess= '+letterClicked.toString());
+    $("#guesses").html("Guesses "+((++l) + w).toString());
+    $('#'+l.toString()).show()
+    $('#'+(l-1).toString()).hide()
+    ///console.log("l1 is = "+l);
+    $("#guesses2").html('Guesses Left= '+(--guessesLeft));
+    ///alert("You're Wrong");
+  }
+  console.log("this is l2 "+l)
+  console.log('w = '+w)
 };
 
 function loserWin(){
-	if (l === 7){
-		$('#underscore').html(choice)
-		alert("Game Over, You lose");
-	}	
-	else if (choice === $("#underscore").text()){
-		alert("You Win!")
-	}	
+  if (l === 7){
+    $('#underscore').html(choice)
+    alert("Game Over, You lose");
+  } 
+  else if (choice === $("#underscore").text()){
+    alert("You Win!")
+  } 
 };
 
 </script>
@@ -129,7 +132,7 @@ function loserWin(){
              ||    
              ||    
              ||    
-    	     ||    
+           ||    
              ||    
              ||   
 ================] </pre>
