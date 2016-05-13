@@ -23,14 +23,14 @@ function deadOrAlive(){
 	console.log("this is i "+i); 
 	console.log("this is b "+b);
 	if (i === b){
-		$('#bleh').html('Bang! Your Dead!');
+		$('#death').html('Bang! Your Dead!');
 		$('#fire').html("It's not your lucky day");
 		$('#bullet').html('Another life is granted, Play again?')
 		$("#spin").html('');
 	} else {
 		$('#fire').html('Click! You live to see another day.');
 		$('#spin').html('Try again?')
-		$('#bleh').html('');
+		$('#death').html('');
 		$('#bullet').html('');
 	}
 	console.groupEnd('deadOrAlive');
@@ -52,7 +52,7 @@ function restart(){
 <a id='spin' href='#'>Feeling lucky?
 </a>
 
-<div id='bleh'>
+<div id='death'>
 </div>
 <a id="bullet" href='#'>
 </a>

@@ -1,0 +1,34 @@
+<html>
+	<head>
+
+	<title>API test</title>
+
+
+	<script type="text/javascript" src="jquery2.min.js"></script>
+	<script type='text/javascript'>
+
+	RandomWord();
+	
+	function RandomWord() {
+	    var requestStr = "http://randomword.setgetgo.com/get.php";
+
+	    $.ajax({
+	        type: "GET",
+	        url: requestStr,
+	        dataType: "jsonp",
+	        jsonpCallback: 'RandomWordComplete'
+	    });
+	}
+
+	function RandomWordComplete(data) {
+	    alert(data.Word);
+	};
+
+	
+
+
+	</script>
+	</head>
+	<body>
+	</body>
+</html>
