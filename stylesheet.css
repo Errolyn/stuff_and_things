@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  font-family: "Verduna"  
+}
+
+
+#header {
+    background-image: url("siteResources/purple-matrix-wallpapers-backgrounds-for-powerpoint.jpg");
+    background-color: #6B238E;
+    height: 160px;
+    text-align: center;
+    color: white;
+    float: top;
+    box-shadow: 11px 9px 37px -8px rgba(0,0,0,0.75);   
+}
+
+#email {
+    font-size: 18px;
+    padding-top: -20px;
+    color: white;
+}
+
+#title {
+    font-size: 45px;
+    font-family: "Arial";
+    padding-top: 40px;
+}
+
+
+#links { 
+    background-color: #6B238E;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    font-family: "Arial";
+    font-size: 20px;
+    box-shadow: 11px 9px 37px -8px rgba(0,0,0,0.75);
+}
+
+#navBar {
+    text-align: center;
+    padding: 5px;
+    padding-bottom: 35px;
+}
+
+#body {
+    text-align: justify;
+    padding-right: 90px;
+    padding-left: 90px;
+    padding-bottom: 20px;
+}
+
+p {
+    padding-top: 20px;
+}
+
+h3{
+    padding-right: 90px;
+    padding-left: 90px;
+     
+}
+
+h4 {
+    text-decoration: underline;
+    font-family: cursive;
+    color: #4f4990;
+}
+
+body {
+    background-image: url("siteResources/ecailles_@2X.png");
+    background-color: "#f3f2ff";
+}
+
+pre {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+#box {
+    
+    position: absolute;
+    float: left;
+    background-color: #6B238E;
+    left: 100px;
+    top: 250px;
+    border-radius: 5px;
+    box-shadow: inset 11px 10px 33px -14px rgba(64,3,64,0.93);
+    width: 160px;
+    color: white;
+    padding: 10px;
+}
+
+#displayLetters {
+    text-align: center;
+    text-decoration:none;
+    font-size: 25px;
+}
+
+#underscore {
+    text-align: center;
+    text-decoration:none;
+    font-size: 40px;
+}
+
+#footer {
+    position: relative;
+    text-align: center;
+    text-decoration: none;      
+}
